@@ -1,0 +1,20 @@
+stages:
+  - build
+  - test
+
+.compile :
+  before_script: mvn clean install
+
+Build-App:
+  stage: build
+  extends:
+    - .compile
+  script:
+  - mvn -v
+  - pwd
+
+Test-App:
+  stage: test
+  extends: .compile
+  script:
+  - mvn test
