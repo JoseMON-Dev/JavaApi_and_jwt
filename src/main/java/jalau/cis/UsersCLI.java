@@ -1,10 +1,8 @@
 package jalau.cis;
 
-import jalau.cis.commands.UsersCommand;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
-import picocli.CommandLine;
 
+import jalau.cis.commands.UsersCommand;
+import picocli.CommandLine;
 
 public class UsersCLI {
     public static void main(String[] args) {

@@ -17,23 +17,14 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @RestController
-@RequestMapping("/api/users")
-public class UserController {
+@RequestMapping("/api/user")
+public class UserController extends Controller {
 
-  @PostMapping("/create")
-  public ResponseEntity<String> createUser(@RequestBody CreateUserRequest request) {
-    try {
-      var id = UUID.randomUUID().toString();
-      User user = new User(id, request.getUserName(), request.getUserLogin(), request.getUserPassword());
-      getUsersService().createUser(user);
-      return new ResponseEntity<>("User created successfully", HttpStatus.CREATED);
-    } catch (Exception ex) {
-      return new ResponseEntity<>("Cannot create user. " + ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-    }
-  }
+
 
   @GetMapping("/read")
   public String getUsers() throws Exception {
+    System.out.println("entrada Read");
     var users = ServicesFacade.getInstance().getUsersService().getUsers();
     StringBuilder resultStringBuilder = new StringBuilder();
     resultStringBuilder.append(String.format("Users found: [%d]\n", users.size()));
@@ -45,12 +36,5 @@ public class UserController {
     String resultString = resultStringBuilder.toString();
     return resultString;
   }
-
-  private UsersService getUsersService() throws Exception {
-    return ServicesFacade.getInstance().getUsersService();
-  }
-
-
-
 
 }

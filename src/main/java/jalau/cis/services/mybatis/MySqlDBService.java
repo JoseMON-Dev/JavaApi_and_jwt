@@ -1,18 +1,47 @@
 package jalau.cis.services.mybatis;
 
+import jalau.cis.api.request.LoginRequest;
 import jalau.cis.models.User;
 import jalau.cis.repository.UserMapper;
 import jalau.cis.services.UsersService;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-public class MySqlDBService implements UsersService {
+@Service
+public class MySqlDBService implements UsersService, UserDetailsService {
 
     private final SqlSessionFactory factory;
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        System.out.println("erre");
+        try {
+            /*
+            List<User> users = getUsers();
+            User user = users.stream()
+              .filter(u -> u.getUsername().equals(username))
+              .findFirst()
+              .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
+
+             */
+            return new User(
+              "d8c4e769-22a8-4f07-b543-74b49afc780e",
+              "jose montes",
+              "josillo",
+              "$2a$10$QtExzFeHGOHlVGxZun15ouo4eL.YH2jxW2xVhi/sQg0nWbq.3ewXG"
+            );
+        } catch (Exception e) {
+            throw new UsernameNotFoundException(e.getMessage());
+        }
+    }
 
     private interface SessionOperation<T> {
         public T execute(SqlSession session, UserMapper mapper) throws Exception;
@@ -107,4 +136,5 @@ public class MySqlDBService implements UsersService {
             }
         });
     }
+
 }

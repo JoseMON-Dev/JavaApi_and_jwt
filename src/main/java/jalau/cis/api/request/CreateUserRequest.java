@@ -1,20 +1,16 @@
 package jalau.cis.api.request;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+
+@Data
 public class CreateUserRequest {
   private String userName;
   private String userLogin;
   private String userPassword;
-
-  public String getUserName() {
-    return userName;
-  }
-
-  public String getUserLogin() {
-    return userLogin;
-  }
-
-  public String getUserPassword() {
-    return userPassword;
-  }
 }
 

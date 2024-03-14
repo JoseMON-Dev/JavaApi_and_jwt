@@ -98,9 +98,15 @@ _In this examples, sd3.xml is a file that follows the **Db Configuration File**_
 ```
 -config=sd3.xml -update -i 3bf71036-e7ef-4890-b79b-91496c14160f -n javier2 -l jroca2 -p pwd321
 ```
+## start API
 
+```
+-config=sd3.xml -api
+```
 # Log of Changes 
 
 - **V1.0. February 2024**:  Initial Version J.ROCA (MasterClass Professor)
 
 _This project is property of Jala University. Do not distribute externally._
+
+

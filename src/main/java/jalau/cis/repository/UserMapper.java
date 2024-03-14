@@ -6,10 +6,12 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.MapKey;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Repository;
 
 import java.util.Map;
 
 @Mapper
+@Repository
 public interface UserMapper {
     @Delete("DELETE FROM users WHERE id=#{userId}")
     int delete(String userId);
@@ -27,5 +29,6 @@ public interface UserMapper {
 
     @Insert("UPDATE users SET name=#{name}, login=#{login}, password=#{password} WHERE id=#{id}")
     void updateUser(User user);
+
 
 }

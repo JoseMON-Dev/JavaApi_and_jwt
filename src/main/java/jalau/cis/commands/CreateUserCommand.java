@@ -1,7 +1,8 @@
 package jalau.cis.commands;
 
 import jalau.cis.models.User;
-import jalau.cis.services.ServicesFacade;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import picocli.CommandLine;
 
 import java.util.UUID;
@@ -16,6 +17,8 @@ public class CreateUserCommand extends Command implements Callable<Integer> {
     @CommandLine.Option(description = "User Password", required = true, names = {"-p"})
     protected String userPassword;
 
+    public CreateUserCommand(){};
+
     public CreateUserCommand (String userName, String userLogin, String userPassword) {
         this.userLogin = userLogin;
         this.userName = userName;
@@ -26,7 +29,8 @@ public class CreateUserCommand extends Command implements Callable<Integer> {
     public Integer call() throws Exception {
         try {
             var id = UUID.randomUUID().toString();
-            User user = new User(id, userName, userLogin, userPassword);
+            PasswordEncoder encoder = new BCryptPasswordEncoder();
+            User user = new User(id, userName, userLogin, encoder.encode(userPassword));
             System.out.printf("Creating user {%s}\n", user);
             getUsersService().createUser(user);
             return 0;
