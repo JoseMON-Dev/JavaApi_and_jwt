@@ -2,10 +2,12 @@ package jalau.cis.commands;
 
 
 import jalau.cis.services.ServicesFacade;
+import lombok.NoArgsConstructor;
 import picocli.CommandLine;
 
 import java.util.concurrent.Callable;
 
+@NoArgsConstructor
 @CommandLine.Command(name = "users", description = "CRUD on a Users DB",
 subcommands = {RunApiCommand.class, ReadUsersCommand.class, DeleteUserCommand.class,
   CreateUserCommand.class,

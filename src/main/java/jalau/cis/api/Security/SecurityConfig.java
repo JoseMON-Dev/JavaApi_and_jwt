@@ -67,7 +67,7 @@ public class SecurityConfig {
       .authorizeHttpRequests(authorizationManagerRequestMatcherRegistry ->
         authorizationManagerRequestMatcherRegistry.requestMatchers(HttpMethod.DELETE).hasRole("ADMIN")
           .requestMatchers("/api/admin/**").hasAnyRole("ADMIN")
-          .requestMatchers("/api/**").permitAll()
+          .requestMatchers("/api/user/**").hasAnyRole("ADMIN")
           .requestMatchers("/auth/**").permitAll()
           .anyRequest().authenticated())
       .httpBasic(Customizer.withDefaults())

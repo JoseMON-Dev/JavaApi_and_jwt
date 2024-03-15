@@ -1,6 +1,7 @@
 package jalau.cis.commands;
 
 import jalau.cis.models.User;
+import lombok.NoArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import picocli.CommandLine;
@@ -8,6 +9,7 @@ import picocli.CommandLine;
 import java.util.UUID;
 import java.util.concurrent.Callable;
 
+@NoArgsConstructor
 @CommandLine.Command(name="-create", description = "Create a new user")
 public class CreateUserCommand extends Command implements Callable<Integer> {
     @CommandLine.Option(description = "User Name", required = true, names = {"-n"})
@@ -16,8 +18,6 @@ public class CreateUserCommand extends Command implements Callable<Integer> {
     protected String userLogin;
     @CommandLine.Option(description = "User Password", required = true, names = {"-p"})
     protected String userPassword;
-
-    public CreateUserCommand(){};
 
     public CreateUserCommand (String userName, String userLogin, String userPassword) {
         this.userLogin = userLogin;

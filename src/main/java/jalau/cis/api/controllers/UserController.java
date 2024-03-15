@@ -24,7 +24,6 @@ public class UserController extends Controller {
 
   @GetMapping("/read")
   public String getUsers() throws Exception {
-    System.out.println("entrada Read");
     var users = ServicesFacade.getInstance().getUsersService().getUsers();
     StringBuilder resultStringBuilder = new StringBuilder();
     resultStringBuilder.append(String.format("Users found: [%d]\n", users.size()));

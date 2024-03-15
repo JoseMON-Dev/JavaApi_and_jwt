@@ -22,22 +22,14 @@ public class MySqlDBService implements UsersService, UserDetailsService {
 
     private final SqlSessionFactory factory;
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        System.out.println("erre");
         try {
-            /*
+
             List<User> users = getUsers();
-            User user = users.stream()
+
+          return users.stream()
               .filter(u -> u.getUsername().equals(username))
               .findFirst()
               .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
-
-             */
-            return new User(
-              "d8c4e769-22a8-4f07-b543-74b49afc780e",
-              "jose montes",
-              "josillo",
-              "$2a$10$QtExzFeHGOHlVGxZun15ouo4eL.YH2jxW2xVhi/sQg0nWbq.3ewXG"
-            );
         } catch (Exception e) {
             throw new UsernameNotFoundException(e.getMessage());
         }

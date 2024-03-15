@@ -5,22 +5,14 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jalau.cis.services.ServicesFacade;
-import jalau.cis.services.UsersService;
-import jalau.cis.services.mybatis.MySqlDBService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
-import java.util.List;
 
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
@@ -80,7 +72,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
       }
 
       filterChain.doFilter(request, response);
-      System.out.println("finalmente esfjkasdkhbjfasdjkhf");
     } catch (Exception e) {
       System.out.println(e.getMessage());
     }

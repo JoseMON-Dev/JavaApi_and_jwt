@@ -1,11 +1,13 @@
 package jalau.cis.commands;
 
 import jalau.cis.models.User;
+import lombok.NoArgsConstructor;
 import picocli.CommandLine;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 
+@NoArgsConstructor
 @CommandLine.Command(name = "-read", description = "Read Users")
 public class ReadUsersCommand extends Command implements Callable<Integer> {
     @Override

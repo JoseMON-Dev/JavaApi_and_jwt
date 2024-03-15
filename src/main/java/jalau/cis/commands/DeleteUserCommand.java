@@ -1,8 +1,10 @@
 package jalau.cis.commands;
 
+import lombok.NoArgsConstructor;
 import picocli.CommandLine;
 import java.util.concurrent.Callable;
 
+@NoArgsConstructor
 @CommandLine.Command(name="-delete", description = "Delete a User by ID")
 public class DeleteUserCommand extends  Command implements Callable<Integer> {
     @CommandLine.Parameters(index = "0", description = "User Id", paramLabel = "id") String userID;

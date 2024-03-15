@@ -2,10 +2,12 @@ package jalau.cis.commands;
 
 import jalau.cis.models.User;
 import jalau.cis.services.ServicesFacade;
+import lombok.NoArgsConstructor;
 import picocli.CommandLine;
 
 import java.util.concurrent.Callable;
 
+@NoArgsConstructor
 @CommandLine.Command(name="-update", description = "Update an existing user")
 public class UpdateUserCommand extends Command implements Callable<Integer> {
     @CommandLine.Option(description = "User Name", required = false, names = {"-n"})
