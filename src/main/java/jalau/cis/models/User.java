@@ -47,7 +47,8 @@ public class User  implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ADMIN"));
+        String userRole = "ROLE_ADMIN".toUpperCase(); // Ensure roles start with "ROLE_"
+        return List.of(new SimpleGrantedAuthority(userRole));
     }
 
     @Override

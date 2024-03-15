@@ -9,9 +9,7 @@ import java.util.concurrent.Callable;
 
 @NoArgsConstructor
 @CommandLine.Command(name = "users", description = "CRUD on a Users DB",
-subcommands = {RunApiCommand.class, ReadUsersCommand.class, DeleteUserCommand.class,
-  CreateUserCommand.class,
-  UpdateUserCommand.class})
+subcommands = {RunApiCommand.class})
 public class UsersCommand implements Callable<Integer> {
     @CommandLine.Option(description = "Configuration File (xml)", required = true, names = {"-config"})
     private String configuration;

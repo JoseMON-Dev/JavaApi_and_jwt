@@ -1,17 +1,14 @@
 package jalau.cis.services.mybatis;
 
-import jalau.cis.api.request.LoginRequest;
 import jalau.cis.models.User;
 import jalau.cis.repository.UserMapper;
 import jalau.cis.services.UsersService;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
