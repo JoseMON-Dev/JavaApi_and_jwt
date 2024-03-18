@@ -1,7 +1,6 @@
 package jalau.cis.services.mybatis;
 
 import jalau.cis.models.User;
-import jalau.cis.repository.UserMapper;
 import jalau.cis.services.UsersService;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;

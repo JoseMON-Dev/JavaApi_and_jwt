@@ -1,4 +1,4 @@
-package jalau.cis.repository;
+package jalau.cis.services.mybatis;
 
 import jalau.cis.models.User;
 import org.apache.ibatis.annotations.Delete;

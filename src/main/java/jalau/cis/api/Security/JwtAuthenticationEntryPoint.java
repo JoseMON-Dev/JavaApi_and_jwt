@@ -14,6 +14,8 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
   @Override
   public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
+    // here we handle authentication errors in this case only send a 401 error authentication
+
     response.sendError(HttpServletResponse.SC_ACCEPTED, authException.getMessage());
   }
 }
